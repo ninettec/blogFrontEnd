@@ -6,12 +6,10 @@ import Settings from "./pages/settings/Settings";
 import Login from "./pages/login/Login";
 import Register from "./pages/register/Register";
 import { BrowserRouter as Router, Routes, Route} from "react-router-dom";
-import { useContext } from "react";
-import { Context } from "./context/Context";
 import Posts from "./components/posts/Posts";
 
 function App() {
-  const user = true;
+  // const user = true;
   return (
     <Router>
       <TopBar />

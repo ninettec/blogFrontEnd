@@ -5,7 +5,6 @@ import Sidebar from "../../components/sidebar/Sidebar";
 import "./home.css";
 import axios from "axios";
 import { useLocation } from "react-router";
-import { axiosInstance } from "../../config";
 
 export default function Home() {
   const [posts, setPosts] = useState([]);
