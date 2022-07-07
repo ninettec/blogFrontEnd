@@ -34,7 +34,9 @@ export default function Home() {
     return () => {
       mounted = false;
     };
-  }, [search]);
+  }, 
+  //eslint-disable-next-line react-hooks/exhaustive-deps
+  [search]);
   
   return (
     <>
