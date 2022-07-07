@@ -17,7 +17,6 @@ export default function Write() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const newPost = {
-      username: user.username,
       title,
       desc,
     };
