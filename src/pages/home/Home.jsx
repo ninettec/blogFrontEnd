@@ -12,21 +12,12 @@ export default function Home() {
   const {search} = useLocation();
   const [hasError, setError] = useState(false);
 
-  // useEffect(() => {
-  //   const fetchPosts = async () => {
-  //     let url = "http://localhost:3900/posts"
-  //     const res = await axios.get(url + search);
-  //     setPosts(res.data);
-  //     console.log(posts);
-  //   };
-  //   fetchPosts();
-  // }, [search]);
   useEffect(() => {
     let mounted = true;
     async function fetchDataAsync() {
       console.log("Fetch Data");
       try {
-        const url = "http://localhost:3900/posts/" + search;
+        const url = "https://ninette.herokuapp.com/posts/" + search;
         console.log("search" , search);
         const res = await axios.get(url);
         setPosts(res.data );

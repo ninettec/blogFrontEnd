@@ -1,5 +1,5 @@
 import axios from "axios"
 
 export const axiosInstance = axios.create({
-    baseURL : "http://localhost:3900"
+    baseURL : "https://ninette.herokuapp.com/"
 })

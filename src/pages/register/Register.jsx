@@ -14,7 +14,7 @@ export default function Register() {
     e.preventDefault();
     setError(false);
     try {
-      let url = "http://localhost:3900/auth/register"
+      let url = "https://ninette.herokuapp.com/auth/register"
       const res = await axios.post(url, {
         username,
         email,

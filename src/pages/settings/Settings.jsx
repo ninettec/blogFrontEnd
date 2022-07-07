@@ -13,7 +13,7 @@ export default function Settings() {
   const [success, setSuccess] = useState(false);
 
   const { user, dispatch } = useContext(Context);
-  const PF = "http://localhost:3900/images/"
+  const PF = "https://ninette.herokuapp.com/images/"
 
   const handleSubmit = async (e) => {
     e.preventDefault();

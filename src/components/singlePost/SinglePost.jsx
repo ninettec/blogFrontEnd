@@ -9,7 +9,7 @@ export default function SinglePost() {
   const location = useLocation();
   const path = location.pathname.split("/")[2];
   const [post, setPost] = useState({});
-  const PF = "http://localhost:3900/images/";
+  const PF = "https://ninette.herokuapp.com/images/";
   const { user } = useContext(Context);
   const [title, setTitle] = useState("");
   const [desc, setDesc] = useState("");
@@ -17,7 +17,7 @@ export default function SinglePost() {
 
   useEffect(() => {
     const getPost = async () => {
-      let url = "http://localhost:3900/posts/"
+      let url = "https://ninette.herokuapp.com/posts/"
       const res = await axios.get(url + path);
       setPost(res.data);
       setTitle(res.data.title);
@@ -28,7 +28,7 @@ export default function SinglePost() {
 
   const handleDelete = async () => {
     try {
-      let url = "http://localhost:3900/posts/"
+      let url = "https://ninette.herokuapp.com/posts/"
       await axios.delete(url + path, {
         data: { username: user.username },
       })
@@ -38,7 +38,7 @@ export default function SinglePost() {
 
   const handleUpdate = async () => {
     try {
-      let url = "http://localhost:3900/posts/"
+      let url = "https://ninette.herokuapp.com/posts/"
       await axiosInstance.put(url + path, {
         username: user.username,
         title,

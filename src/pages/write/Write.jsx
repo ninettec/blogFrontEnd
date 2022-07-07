@@ -28,14 +28,14 @@ export default function Write() {
       data.append("file", file);
       newPost.photo = filename;
       try {
-        let url = "http://localhost:3900/upload"
+        let url = "https://ninette.herokuapp.com/upload"
         await axios.post(url, data);
       } catch (err) {}
     }
     try {
-      let url = "http://localhost:3900/posts/"
+      let url = "https://ninette.herokuapp.com/posts/"
       const res = await axios.post(url, newPost);
-      url = "http://localhost:3000/post/"
+      url = "https://ninette.herokuapp.com/post/"
 
       window.location.replace(url + res.data._id);
     } catch (err) {}

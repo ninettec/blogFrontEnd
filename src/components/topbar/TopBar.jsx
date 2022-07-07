@@ -5,7 +5,7 @@ import { Context } from "../../context/Context";
 
 export default function TopBar() {
     const {user, dispatch} = useContext(Context);
-    const PF = "http://localhost:3900"
+    const PF = "https://ninette.herokuapp.com/"
 
     const handleLogout = () => {
         dispatch({type:"LOGOUT"});

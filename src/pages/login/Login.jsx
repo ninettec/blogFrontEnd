@@ -14,7 +14,7 @@ export default function Login() {
     e.preventDefault();
     dispatch({ type: "LOGIN_START" });
     try {
-      let url = "http://localhost:3900/auth/login"
+      let url = "https://ninette.herokuapp.com/auth/login"
       
 
       const res = await axios.post(url, {
