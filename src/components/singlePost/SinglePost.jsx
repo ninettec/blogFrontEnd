@@ -11,6 +11,7 @@ export default function SinglePost() {
   const [post, setPost] = useState({});
   const PF = "https://ninette.herokuapp.com/images/";
   const { user } = useContext(Context);
+  console.log(user)
   const [title, setTitle] = useState("");
   const [desc, setDesc] = useState("");
   const [updateMode, setUpdateMode] = useState(false);
@@ -29,23 +30,27 @@ export default function SinglePost() {
   const handleDelete = async () => {
     try {
       let url = "https://ninette.herokuapp.com/posts/"
-      await axios.delete(url + path, {
-        data: { username: user.username },
-      })
+
+      console.log(url + path)
+      await axios.delete(url + path)
       window.location.replace("/");
-    } catch (err) { }
+    } catch (err) { 
+      console.log(err)
+    }
   };
 
   const handleUpdate = async () => {
     try {
       let url = "https://ninette.herokuapp.com/posts/"
       await axiosInstance.put(url + path, {
-        username: user.username,
+
         title,
         desc,
       });
       setUpdateMode(false)
-    } catch (err) { }
+    } catch (err) { 
+      console.log(err)
+    }
   };
 
   return (
@@ -55,16 +60,20 @@ export default function SinglePost() {
         {updateMode ? <input type="text" value={title} className="singlePostTitleInput" autoFocus onChange={(e) => { setTitle(e.target.value) }}></input> : 
         <h1 className="singlePostTitle">
           {title}
-          {post.username === user?.username && 
-          (<div className="singlePostEdit">
+
+          <div className='post-edit-container'>
+          <div className="singlePostEdit">
             <i className="edit" onClick={() => { setUpdateMode(true) }}>
             Update this post
             </i>
+            </div>
+            <div className="singlePostEdit">
             <i className="delete" onClick = {handleDelete}> 
             Delete
             </i>
           </div>
-          )}
+          </div>
+          
         </h1>}
         <div className="singlePostInfo">
           <span className="singlePostAuthor">Author: <Link to={`/?user=${post.username}`} className="link"><b>{post.username}</b></Link></span>

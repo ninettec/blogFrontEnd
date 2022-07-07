@@ -97,3 +97,10 @@
     align-self: flex-end;
     margin-top: 20px;
   }
+
+  .post-edit-container{
+    justify-content: space-between;
+    display: flex;
+    margin-left: auto;
+    width: 165px;
+  }
