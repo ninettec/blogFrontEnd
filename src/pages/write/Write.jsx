@@ -1,6 +1,7 @@
 import {useState } from "react";
 import "./write.css";
 import axios from "axios";
+import { useNavigate } from "react-router";
 // import { useate } from "react-router";
 
 
@@ -11,6 +12,7 @@ export default function Write() {
   const [desc, setDesc] = useState("");
   // const ate = useSate();
   const [file, setFile] = useState(null);
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -31,10 +33,8 @@ export default function Write() {
     }
     try {
       let url = "https://ninette.herokuapp.com/posts/"
-      const res = await axios.post(url, newPost);
-      url = "https://ninette.herokuapp.com/post/"
-
-      window.location.replace(url + res.data._id);
+      await axios.post(url, newPost);
+      navigate('/')
     } catch (err) {}
   };
   return (
